@@ -1,19 +1,17 @@
 function addEvent() {
   let title = document.getElementById("title").value;
-  let desc = document.getElementById("desc").value;
   if (title.length > 0) {
     if (localStorage.getItem("listJson") == null) {
       list = [];
-      list.push([title, desc]);
+      list.push([title]);
       localStorage.setItem("listJson", JSON.stringify(list));
     } else {
       listStr = localStorage.getItem("listJson");
       list = JSON.parse(listStr);
-      list.push([title, desc]);
+      list.push([title]);
       localStorage.setItem("listJson", JSON.stringify(list));
     }
     document.getElementById("title").value = "";
-    document.getElementById("desc").value = "";
     updateList();
   }
 }
@@ -25,10 +23,9 @@ function updateList() {
     let str = "";
     list.forEach((element, index) => {
       str += `
-        <tr ondblclick="done(this)">
-        <th scope="row" class="user-select-none">${index + 1}</th>
-        <td class="user-select-none">${element[0]}</td>
-        <td class="user-select-none">${element[1]}</td>
+        <tr onclick="done(this)">
+        <th scope="row" class="user-select-none w-25">${index + 1}</th>
+        <td class="user-select-none w-50 text-break">${element}</td>
         <td class="user-select-none"><button class="btn btn-primary mx-2" onclick="deleteEvent(${index})">Delete</button></td>
       </tr>
         `;

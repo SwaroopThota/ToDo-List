@@ -20,91 +20,35 @@
         >
       </div>
     </nav>
-    <p class="text-center mt-2 text-muted">
-      Double click on the task to mark it as done.
-    </p>
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="container">
-              <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" />
-              </div>
-              <div class="mb-3">
-                <label for="desc" class="form-label">Description</label>
-                <textarea
-                  id="desc"
-                  class="form-control"
-                  rows="3"
-                  aria-label="With textarea"
-                  style="resize: none"
-                ></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
+    <div class="d-flex justify-content-center mt-3">
+    <input type="text" class="form-control w-50 mx-2" id="title" />
+    <button
               type="button"
               class="btn btn-primary"
               data-bs-dismiss="modal"
               onclick="addEvent()"
             >
-              Add Event
-            </button>
-          </div>
-        </div>
-      </div>
+              Add Task
+    </button>
     </div>
+    <p class="text-center mt-2 text-muted">
+      Click on the task to mark it as done.
+    </p>
     <!-- Table -->
-    <table class="container-fluid table text-center my-4">
-      <thead>
+    <table class="table table-hover text-center">
+      <thead class="table-dark align-middle">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">Description</th>
+          <th scope="col">Task</th>
           <th scope="col">
-            <button class="btn btn-primary mx-2" onclick="clearList()">
+            <button class="btn btn-danger mx-2" onclick="clearList()">
               Delete List
             </button>
           </th>
         </tr>
       </thead>
-      <tbody id="tableBody"></tbody>
+      <tbody id="tableBody" class="align-top"></tbody>
     </table>
-    <button
-      type="button"
-      class="btn btn-primary d-block my-2 mx-auto"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
-    >
-      Add Event
-    </button>
-
     <!-- Bootstrap JavaScript -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -116,6 +60,7 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
+    <!-- our JavaScript -->
     <script src="main.js"></script>
   </body>
 </html>
