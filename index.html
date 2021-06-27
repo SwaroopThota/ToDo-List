@@ -21,8 +21,8 @@
       </div>
     </nav>
      <div class="input-group my-3 w-75 mx-auto">
-      <input type="text" class="form-control" placeholder="Your Task" id="title" aria-label="Recipient's username" aria-describedby="button-addon2" autocomplete="off" autofocus>
-      <button class="btn btn-primary" type="button" id="button-addon2" onclick="addEvent()">Add Task</button>
+      <input type="text" class="form-control" placeholder="Your Task" id="title" aria-label="Recipient's username" aria-describedby="addTask" autocomplete="off" autofocus onkeyup="onEnter(event)">
+      <button class="btn btn-primary" type="button" id="addTask" onclick="addEvent()">Add Task</button>
     </div>
     <p class="text-center mt-2 text-muted">
       Click on the task to mark it as done.

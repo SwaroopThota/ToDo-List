@@ -61,3 +61,9 @@ function clearList() {
 function done(tr) {
   tr.classList.toggle("text-decoration-line-through");
 }
+function onEnter(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("addTask").click();
+  }
+}
