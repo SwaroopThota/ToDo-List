@@ -20,16 +20,9 @@
         >
       </div>
     </nav>
-    <div class="d-flex justify-content-center mt-3">
-    <input type="text" class="form-control w-50 mx-2" id="title" />
-    <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-dismiss="modal"
-              onclick="addEvent()"
-            >
-              Add Task
-    </button>
+     <div class="input-group my-3 w-75 mx-auto">
+      <input type="text" class="form-control" placeholder="Your Task" id="title" aria-label="Recipient's username" aria-describedby="button-addon2" autocomplete="off" autofocus>
+      <button class="btn btn-primary" type="button" id="button-addon2" onclick="addEvent()">Add Task</button>
     </div>
     <p class="text-center mt-2 text-muted">
       Click on the task to mark it as done.
