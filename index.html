@@ -13,16 +13,10 @@
     />
     <style>
       @media (max-width: 768px) {
-        #title{
-          width: 100%;
+        #inputContainer{
+          width: 95% !important;
         }
-        #lala{
-          width: 90% !important;
-        }
-        #taskList{
-          width: 90% !important;
-        }
-       }
+      }
     </style>
   </head>
   <body onload="updateList()">
@@ -33,34 +27,34 @@
         >
       </div>
     </nav>
-    <div class="input-group my-3 w-75 mx-auto" id="lala">
+    <div class="my-3 w-75 mx-auto" id="inputContainer">
       <input
         type="text"
-        class="form-control"
+        class="form-control d-block"
         placeholder="Your Task"
         id="title"
-        aria-label="Recipient's username"
-        aria-describedby="addTask"
         autocomplete="off"
         autofocus
         onkeyup="onEnter(event)"
       />
-      <button
-        class="btn btn-primary"
-        type="button"
-        aria-describedby="clearList"
-        id="addTask"
-        onclick="addTask()"
-      >
-        Add Task
-      </button>
-      <button class="btn btn-danger" id="clearList" onclick="clearCompleted()" >Clear completed</button>
+      <div class="my-3 d-flex justify-content-end">
+        <button class="btn btn-primary mx-2" onclick="addTask()">
+          Add Task
+        </button>
+        <button
+          class="btn btn-danger"
+          id="clearList"
+          onclick="clearCompleted()"
+        >
+          Clear completed
+        </button>
+      </div>
+      <p class="text-center mt-2 text-muted">
+        Click on the task to mark it as done.
+      </p>
+      <!-- Table -->
+      <ul class="list-group text-break" id="taskList"></ul>
     </div>
-    <p class="text-center mt-2 text-muted">
-      Click on the task to mark it as done.
-    </p>
-    <!-- Table -->
-    <ul class="list-group text-break w-75 mx-auto" id="taskList"></ul>
     <!-- Bootstrap JavaScript -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
