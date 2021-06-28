@@ -1,11 +1,12 @@
+if(localStorage.getItem("listJson")==null)
+localStorage.setItem("listJson","");
+list=[]
 function addTask() {
   let input = document.getElementById("title");
   if (input.value.length > 0) {
-    list = [];
-    if (localStorage.getItem("listJson") != null){
       listStr = localStorage.getItem("listJson");
+      if(listStr!="")
       list = JSON.parse(listStr);
-    }
     list.push({
       name: input.value,
       completed:false
@@ -16,8 +17,8 @@ function addTask() {
   }
 }
 function updateList() {
-  if (localStorage.getItem("listJson") != null) {
     listStr = localStorage.getItem("listJson");
+    if(listStr!="")
     list = JSON.parse(listStr);
     let str = '<li class="list-group-item active fs-4 text-center" aria-current="true">Tasks</li>';
     if(list.length==0){
@@ -30,32 +31,26 @@ function updateList() {
     });
   }
     document.getElementById("taskList").innerHTML= str;
-  }
 }
 function done(index) {
-  if (localStorage.getItem("listJson") != null) {
     listStr = localStorage.getItem("listJson");
     list = JSON.parse(listStr);
     list[index].completed=!list[index].completed;
     localStorage.setItem("listJson", JSON.stringify(list));
-  }
-  updateList();
+    updateList();
 }
 function onEnter(event) {
   if (event.keyCode === 13) {
     event.preventDefault();
-    document.getElementById("addTask").click();
+    addTask();
   }
 }
 function clearCompleted(){
-  if (localStorage.getItem("listJson") != null) {
     listStr = localStorage.getItem("listJson");
     list = JSON.parse(listStr);
-    list=list.filter(function (ele){
-      if(!ele.completed)
-      return ele;
+    list=list.filter((ele)=>{
+      if(!ele.completed) return ele;
     });
     localStorage.setItem("listJson", JSON.stringify(list));
     updateList();
-  }
 }
