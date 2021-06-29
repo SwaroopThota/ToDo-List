@@ -19,11 +19,12 @@ function updateList() {
   let str ='<li class="list-group-item active fs-4 text-center" aria-current="true">Tasks</li>';
   if (list.length == 0) {
     str += '<li class="list-group-item text-muted">No tasks to do.</li>';
-  } else {
+  }
+  else {
     list.forEach((element, index) => {
-      str += `<li class="list-group-item list-group-item-action p-0"><div class="d-inline-block p-2 user-select-none`;
+      str += `<li class="list-group-item list-group-item-action d-flex"><p class="m-0 user-select-none`;
       str += (element.completed)?` text-decoration-line-through`:``;
-      str+=`" style="width:90%;" onclick="done(${index})">${index + 1}. ${element.name}</div> <button type="button" class="btn-close" aria-label="Close" onclick="deleteTask(${index})"></button></li>`;
+      str+=`" onclick="done(${index})">${index + 1}. ${element.name}</p> <button type="button" class="btn-close d-block ms-auto" aria-label="Close" onclick="deleteTask(${index})"></button></li>`;
     });
   }
   document.getElementById("taskList").innerHTML = str;
