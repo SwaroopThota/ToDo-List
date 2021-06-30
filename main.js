@@ -22,7 +22,7 @@ function updateList() {
   }
   else {
     list.forEach((element, index) => {
-      str += `<li class="list-group-item list-group-item-action d-flex"><p class="m-0 user-select-none`;
+      str += `<li class="list-group-item list-group-item-action d-flex"><p style="cursor: pointer !important;" class="m-0 user-select-none`;
       str += (element.completed)?` text-decoration-line-through`:``;
       str+=`" onclick="done(${index})">${index + 1}. ${element.name}</p> <button type="button" class="btn-close d-block ms-auto" aria-label="Close" onclick="deleteTask(${index})"></button></li>`;
     });
