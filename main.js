@@ -33,7 +33,7 @@ function updateList() {
   const comp = list.filter((e) => {
     return e.completed;
   });
-  str += `<p class="list-group-item text-muted text-center"> ${comp.length} tasks to do.</p>`;
+  str += `<p class="text-muted text-center"> ${comp.length} tasks to do.</p>`;
   document.getElementById("taskList").innerHTML = str;
 }
 function done(index) {
